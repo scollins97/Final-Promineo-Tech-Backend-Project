@@ -10,15 +10,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="ownership")
-public class Ownership {
+@Table(name="player")
+public class Pet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int owner_id;
+	private int pet_id;
 	@Column
-	private String first_name;
+	private String pet_name;
 	@Column
-	private String last_name;
+	private PetCatOrDog cat_or_dog;
+	@Column
+	private String DOB;
+	@Column
+	private String breed;
+	@Column
+	private String color;
 	@Column
 	private Gender gender;
 }

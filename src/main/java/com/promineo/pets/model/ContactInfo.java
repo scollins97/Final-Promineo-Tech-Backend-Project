@@ -10,15 +10,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="ownership")
-public class Ownership {
+@Table(name="contact_info")
+public class ContactInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int owner_id;
 	@Column
-	private String first_name;
+	private String address;
 	@Column
-	private String last_name;
-	@Column
-	private Gender gender;
+	private String phone;
+	@Column 
+	private String email;
 }

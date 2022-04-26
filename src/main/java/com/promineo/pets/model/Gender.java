@@ -1,5 +1,5 @@
 package com.promineo.pets.model;
 
-public enum OwnershipGender {
+public enum Gender {
 					F, M
 }
