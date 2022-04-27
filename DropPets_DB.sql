@@ -34,10 +34,11 @@ FOREIGN KEY(owner_id) REFERENCES ownership(owner_id)
 );
 
 CREATE TABLE contact_info(
+contact_id INT NOT NULL AUTO_INCREMENT,
 owner_id INT,
 address VARCHAR(100) NOT NULL,
 phone VARCHAR(11) NOT NULL,
 email VARCHAR(320),
-PRIMARY KEY(owner_id),
+PRIMARY KEY(contact_id),
 FOREIGN KEY(owner_id) REFERENCES ownership(owner_id)
 );

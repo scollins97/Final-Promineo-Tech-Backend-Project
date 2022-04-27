@@ -14,11 +14,11 @@ import lombok.Data;
 public class ContactInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int owner_id;
+	private int contact_id;
 	@Column
 	private String address;
 	@Column
 	private String phone;
-	@Column 
+	@Column
 	private String email;
 }
