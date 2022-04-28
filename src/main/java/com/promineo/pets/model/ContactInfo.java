@@ -30,8 +30,7 @@ public class ContactInfo {
 	@Column
 	private String email;
 	
-	@ManyToOne
-	@JoinColumn(name = "owner_id")
-	@JsonIgnore
-	private Ownership ownership;
+//	@ManyToOne
+//	@JoinColumn(name = "owner_id")
+//	private Ownership ownership;
 }

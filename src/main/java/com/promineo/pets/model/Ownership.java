@@ -31,10 +31,9 @@ public class Ownership {
 	@Column
 	private Gender gender;
 	
-	@OneToMany(mappedBy = "ownership")
-	private List<ContactInfo> contactInfo;
+//	@OneToMany(mappedBy = "ownership")
+//	private List<ContactInfo> contactInfo;
 	
-	@ManyToMany(mappedBy = "owner_pet")
-	@JsonIgnore
-	private List<Pet> pets = new ArrayList<Pet>();
+//	@ManyToMany(mappedBy = "owner_pet")
+//	private List<Pet> pet = new ArrayList<Pet>();
 }

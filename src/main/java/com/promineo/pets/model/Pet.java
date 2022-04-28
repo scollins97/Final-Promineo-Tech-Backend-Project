@@ -36,7 +36,6 @@ public class Pet {
 	@Column
 	private Gender gender;
 	
-	@ManyToMany(mappedBy = "owner_pet")
-	@JsonIgnore
-	private List<Ownership> owners = new ArrayList<Ownership>();
+//	@ManyToMany(mappedBy = "owner_pet")
+//	private List<Ownership> owners = new ArrayList<Ownership>();
 }
