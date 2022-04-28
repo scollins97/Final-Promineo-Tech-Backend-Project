@@ -35,21 +35,21 @@ public class ContactInfoController {
 	@GetMapping List<ContactInfo> getAllContactInfo() {
 		return contactInfoService.getAllContactInfo();
 	}
-	@GetMapping("{owner_id}")
+	@GetMapping("{contact_id}")
 	public ResponseEntity<ContactInfo> getContactInfoById(
-			@PathVariable("owner_id") int ownerId){
+			@PathVariable("owner_id") int contactId){
 		return new ResponseEntity<ContactInfo>(
-				contactInfoService.getContactInfoById(ownerId),HttpStatus.OK);
+				contactInfoService.getContactInfoById(contactId),HttpStatus.OK);
 	}
-	@PutMapping("{owner_id}")
+	@PutMapping("{contact_id}")
 	public ResponseEntity<ContactInfo> updateContactInfo(
-			@PathVariable("owner_id") int ownerId, @RequestBody ContactInfo contactInfo) {
+			@PathVariable("owner_id") int contactId, @RequestBody ContactInfo contactInfo) {
 		return new ResponseEntity<ContactInfo>(
-				contactInfoService.updateContactInfo(contactInfo, ownerId), HttpStatus.OK);
+				contactInfoService.updateContactInfo(contactInfo, contactId), HttpStatus.OK);
 	}
-	@DeleteMapping("{owner_id}")
-	public ResponseEntity<String> deleteContactInfo(@PathVariable("owner_id") int ownerId){
-		contactInfoService.deleteContactInfo(ownerId);
+	@DeleteMapping("{contact_id}")
+	public ResponseEntity<String> deleteContactInfo(@PathVariable("owner_id") int contactId){
+		contactInfoService.deleteContactInfo(contactId);
 		
 		return new ResponseEntity<String>("Contact Info Deleted!!", HttpStatus.OK);
 	}
