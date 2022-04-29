@@ -42,6 +42,8 @@ public class ContactInfoServiceImpl implements ContactInfoService{
 		existingContactInfo.setPhone(contactInfo.getPhone());
 		existingContactInfo.setEmail(contactInfo.getEmail());
 		
+		contactInfoRepository.save(existingContactInfo);
+		
 		return existingContactInfo;
 	}
 

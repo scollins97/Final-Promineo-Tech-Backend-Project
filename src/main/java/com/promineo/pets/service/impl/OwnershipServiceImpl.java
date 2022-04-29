@@ -1,10 +1,14 @@
 package com.promineo.pets.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.promineo.pets.exception.ResourceNotFoundException;
 import com.promineo.pets.model.Ownership;
+import com.promineo.pets.model.Pet;
 import com.promineo.pets.repository.OwnershipRepository;
 import com.promineo.pets.service.OwnershipService;
 
@@ -37,6 +41,8 @@ public class OwnershipServiceImpl implements OwnershipService{
 		existingOwner.setLast_name(owner.getLast_name());
 		existingOwner.setGender(owner.getGender());
 		
+		ownershipRespository.save(existingOwner);
+		
 		return existingOwner;
 	}
 	@Override
@@ -44,5 +50,12 @@ public class OwnershipServiceImpl implements OwnershipService{
 		Ownership existingOwner = ownershipRespository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Ownership", "Id", id));
 		ownershipRespository.deleteById(id);
+	}
+	@Override
+	public List<Pet> getAllPetsPerOwnerId(int id) {
+		Ownership existingOwner = ownershipRespository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Ownership", "Id", id));
+		Set<Pet> ownersPetsSet = existingOwner.getPetsByOwnerId();
+		return new ArrayList<>(ownersPetsSet);
 	}
 }

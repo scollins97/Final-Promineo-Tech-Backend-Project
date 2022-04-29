@@ -1,7 +1,6 @@
 package com.promineo.pets.controller;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.promineo.pets.model.Ownership;
+import com.promineo.pets.model.Pet;
 import com.promineo.pets.service.OwnershipService;
 
 @RestController
@@ -48,6 +48,11 @@ public class OwnershipController {
 	}
 	@DeleteMapping("{owner_id}")
 	public ResponseEntity<String> deleteOwnership(@PathVariable("owner_id") int ownerId){
+		ownershipService.deleteOwnership(ownerId);
 		return new ResponseEntity<String>("Owner Deleted!!", HttpStatus.OK);
+	}
+	@GetMapping("ownership/{owner_id}/pet")
+	public List<Pet> getAllPetsPerOwnerId(@PathVariable("owner_id") int ownerId){
+		return ownershipService.getAllPetsPerOwnerId(ownerId);
 	}
 }

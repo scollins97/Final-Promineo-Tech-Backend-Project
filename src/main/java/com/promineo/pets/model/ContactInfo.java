@@ -8,9 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.springframework.data.relational.core.mapping.Column;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Data
@@ -22,15 +19,13 @@ public class ContactInfo {
 	private int contact_id;
 	
 	@Column
-	private int owner_id;
-	@Column
 	private String address;
 	@Column
 	private String phone;
 	@Column
 	private String email;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "owner_id")
-//	private Ownership ownership;
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private Ownership ownership;
 }

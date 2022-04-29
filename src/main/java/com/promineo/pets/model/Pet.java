@@ -1,23 +1,21 @@
 package com.promineo.pets.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import org.springframework.data.relational.core.mapping.Column;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="player")
+@Table(name="pet")
 public class Pet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +24,7 @@ public class Pet {
 	@Column
 	private String pet_name;
 	@Column
+	@Enumerated(EnumType.STRING)
 	private PetCatOrDog cat_or_dog;
 	@Column
 	private String DOB;
@@ -34,8 +33,10 @@ public class Pet {
 	@Column
 	private String color;
 	@Column
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
-//	@ManyToMany(mappedBy = "owner_pet")
-//	private List<Ownership> owners = new ArrayList<Ownership>();
+	@ManyToMany(mappedBy = "petsByOwnerId")
+	@JsonIgnore
+	private Set<Ownership> owners;
 }

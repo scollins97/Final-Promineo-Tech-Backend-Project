@@ -1,10 +1,8 @@
 package com.promineo.pets.service.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.promineo.pets.exception.ResourceNotFoundException;
 import com.promineo.pets.model.Pet;
 import com.promineo.pets.repository.PetRepository;
@@ -41,6 +39,8 @@ public class PetServiceImpl implements PetService{
 		existingPet.setBreed(pet.getBreed());
 		existingPet.setColor(pet.getColor());
 		existingPet.setGender(pet.getGender());
+		
+		petRepository.save(existingPet);
 		
 		return existingPet;
 	}

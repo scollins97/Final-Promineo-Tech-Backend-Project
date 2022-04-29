@@ -17,11 +17,11 @@ PRIMARY KEY(owner_id)
 CREATE TABLE pet(
 pet_id INT NOT NULL AUTO_INCREMENT,
 pet_name VARCHAR(50) NOT NULL,
-cat_or_dog ENUM('Cat','Dog') NOT NULL,
+cat_or_dog ENUM('Cat','Dog'),
 DOB DATE,
 breed VARCHAR(50),
 color VARCHAR(30),
-gender ENUM('F','M') NOT NULL,
+gender ENUM('F','M'),
 PRIMARY KEY(pet_id)
 );
 

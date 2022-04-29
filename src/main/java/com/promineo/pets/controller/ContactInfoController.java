@@ -37,18 +37,18 @@ public class ContactInfoController {
 	}
 	@GetMapping("{contact_id}")
 	public ResponseEntity<ContactInfo> getContactInfoById(
-			@PathVariable("owner_id") int contactId){
+			@PathVariable("contact_id") int contactId){
 		return new ResponseEntity<ContactInfo>(
 				contactInfoService.getContactInfoById(contactId),HttpStatus.OK);
 	}
 	@PutMapping("{contact_id}")
 	public ResponseEntity<ContactInfo> updateContactInfo(
-			@PathVariable("owner_id") int contactId, @RequestBody ContactInfo contactInfo) {
+			@PathVariable("contact_id") int contactId, @RequestBody ContactInfo contactInfo) {
 		return new ResponseEntity<ContactInfo>(
 				contactInfoService.updateContactInfo(contactInfo, contactId), HttpStatus.OK);
 	}
 	@DeleteMapping("{contact_id}")
-	public ResponseEntity<String> deleteContactInfo(@PathVariable("owner_id") int contactId){
+	public ResponseEntity<String> deleteContactInfo(@PathVariable("contact_id") int contactId){
 		contactInfoService.deleteContactInfo(contactId);
 		
 		return new ResponseEntity<String>("Contact Info Deleted!!", HttpStatus.OK);
