@@ -27,25 +27,30 @@ public class PetController {
 	}
 	
 	@PostMapping()
+	//Post
 	public ResponseEntity<Pet> savePet(@RequestBody Pet pet) {
 		return new ResponseEntity<Pet>(petService.savePet(pet), HttpStatus.CREATED);
 	}
 	@GetMapping
+	//Get all the pets
 	public List<Pet> getAllPets() {
 		return petService.getAllPets();
 	}
 	@GetMapping("{pet_id}")
+	//Get one pet by it's ID
 	public ResponseEntity<Pet> getPetById(@PathVariable("pet_id") int petId){
 		return new ResponseEntity<Pet>(petService.getPetById(petId), 
 				HttpStatus.OK);
 	}
 	@PutMapping("{pet_id}")
+	//Put -- update pet
 	public ResponseEntity<Pet> updatePet(
 			@PathVariable("pet_id") int petId, @RequestBody Pet pet){
 		return new ResponseEntity<Pet>(petService.updatePet(pet, petId), 
 				HttpStatus.OK);
 	}
 	@DeleteMapping("{pet_id}")
+	//Destroy the pet
 	public ResponseEntity<String> deletePet(@PathVariable("pet_id") int petId){
 		petService.deletePet(petId);
 		

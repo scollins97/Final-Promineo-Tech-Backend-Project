@@ -1,16 +1,13 @@
 package com.promineo.pets.model;
 
-import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import org.springframework.data.relational.core.mapping.Column;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
@@ -36,7 +33,4 @@ public class Pet {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
-	@ManyToMany(mappedBy = "petsByOwnerId")
-	@JsonIgnore
-	private Set<Ownership> owners;
 }

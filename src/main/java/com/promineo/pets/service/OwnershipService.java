@@ -16,4 +16,5 @@ public interface OwnershipService {
 	void deleteOwnership(int id);
 	
 	List<Pet> getAllPetsPerOwnerId(int id);
+	
 }

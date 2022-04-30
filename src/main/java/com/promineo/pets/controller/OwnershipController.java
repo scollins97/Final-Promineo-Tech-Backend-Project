@@ -27,32 +27,39 @@ public class OwnershipController {
 	}
 	
 	@PostMapping()
+	//Post
 	public ResponseEntity<Ownership> saveOwnership(@RequestBody Ownership ownership){
 		return new ResponseEntity<Ownership>(
 				ownershipService.saveOwnership(ownership), HttpStatus.CREATED);
 	}
 	@GetMapping
+	//Get all owners
 	public List<Ownership> getAllOwners(){
 		return ownershipService.getAllOwners();
 	}
 	@GetMapping("{owner_id}")
+	//Get by id instead of all
 	public ResponseEntity<Ownership> getOwnerById(@PathVariable("owner_id") int ownerId){
 		return new ResponseEntity<Ownership>(ownershipService.getOwnerById(ownerId),
 				HttpStatus.OK);
 	}
 	@PutMapping("{owner_id}")
+	//Put- updateing an owner
 	public ResponseEntity<Ownership> updateOwnership(@PathVariable("owner_id") int ownerId,
 			@RequestBody Ownership owner){
 		return new ResponseEntity<Ownership>(ownershipService
 				.updateOwnership(owner, ownerId), HttpStatus.OK);
 	}
 	@DeleteMapping("{owner_id}")
+	//Destroy an owner by the id given
 	public ResponseEntity<String> deleteOwnership(@PathVariable("owner_id") int ownerId){
 		ownershipService.deleteOwnership(ownerId);
 		return new ResponseEntity<String>("Owner Deleted!!", HttpStatus.OK);
 	}
 	@GetMapping("ownership/{owner_id}/pet")
+	//Gets all the pets owned by a single owner
 	public List<Pet> getAllPetsPerOwnerId(@PathVariable("owner_id") int ownerId){
 		return ownershipService.getAllPetsPerOwnerId(ownerId);
 	}
+
 }

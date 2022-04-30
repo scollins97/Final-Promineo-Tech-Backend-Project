@@ -31,9 +31,9 @@ public class Ownership {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
-	@OneToMany(mappedBy = "ownership") //either this or owner_id
+	@OneToMany(mappedBy = "ownership")
 	@JsonIgnore
-	private Set<ContactInfo> contactInfo;
+	private Set<ContactInfo> contactInfoByOwnerId;
 	
 	@ManyToMany
 	@JoinTable(

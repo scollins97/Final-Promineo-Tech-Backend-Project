@@ -4,6 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
+/*
+ * this my exception that handles any issues with objects not existing in the database
+ * for example, if you call a key that does not exist this exception is used 
+ */
 public class ResourceNotFoundException extends RuntimeException{
 	private String resourceName;
 	private String fieldName;

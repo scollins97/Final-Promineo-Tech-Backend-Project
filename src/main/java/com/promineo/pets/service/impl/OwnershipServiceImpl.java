@@ -3,7 +3,6 @@ package com.promineo.pets.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.promineo.pets.exception.ResourceNotFoundException;
@@ -58,4 +57,5 @@ public class OwnershipServiceImpl implements OwnershipService{
 		Set<Pet> ownersPetsSet = existingOwner.getPetsByOwnerId();
 		return new ArrayList<>(ownersPetsSet);
 	}
+	
 }

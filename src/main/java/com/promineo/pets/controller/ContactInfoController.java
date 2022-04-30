@@ -27,27 +27,32 @@ public class ContactInfoController {
 	}
 	
 	@PostMapping()
+	//Post
 	public ResponseEntity<ContactInfo> saveContactInfo(
 			@RequestBody ContactInfo contactInfo) {
 		return new ResponseEntity<ContactInfo>(
 				contactInfoService.saveContactInfo(contactInfo), HttpStatus.CREATED);
 	}
+	//Get all contact info 
 	@GetMapping List<ContactInfo> getAllContactInfo() {
 		return contactInfoService.getAllContactInfo();
 	}
 	@GetMapping("{contact_id}")
+	//Get a contact info by contact key
 	public ResponseEntity<ContactInfo> getContactInfoById(
 			@PathVariable("contact_id") int contactId){
 		return new ResponseEntity<ContactInfo>(
 				contactInfoService.getContactInfoById(contactId),HttpStatus.OK);
 	}
 	@PutMapping("{contact_id}")
+	//Put -- update contact info
 	public ResponseEntity<ContactInfo> updateContactInfo(
 			@PathVariable("contact_id") int contactId, @RequestBody ContactInfo contactInfo) {
 		return new ResponseEntity<ContactInfo>(
 				contactInfoService.updateContactInfo(contactInfo, contactId), HttpStatus.OK);
 	}
 	@DeleteMapping("{contact_id}")
+	//Destroy contact info
 	public ResponseEntity<String> deleteContactInfo(@PathVariable("contact_id") int contactId){
 		contactInfoService.deleteContactInfo(contactId);
 		
